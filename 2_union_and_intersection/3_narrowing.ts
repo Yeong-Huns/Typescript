@@ -97,6 +97,7 @@ let dateOrString: Date | string = Math.random() > 0.5 ? new Date() : '김영훈'
 if (dateOrString instanceof Date) dateOrString // let dateOrString: Date
 else dateOrString // let dateOrString: string
 
+
 // 7) discriminated union Narrowing (차별된 유니언 내로잉)
 interface Animal {
     type: 'dog' | 'human';
