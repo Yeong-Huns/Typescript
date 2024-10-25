@@ -56,7 +56,7 @@ function instantiator<T extends {new (...args: any[]) : {}}>(constructor: T, ...
 console.log(instantiator(Idol, '아이유', 23));
 console.log(instantiator(Car, 'BMW', 1111));
 
-function instantiator2<T extends { new (...args: any[]) : {}}>(cons: T, ...args:any[]){
+function instantiator2<T extends { new (...args: any[]) : {} }>(cons: T, ...args:any[]){
     return new cons(...args);
 }
 
