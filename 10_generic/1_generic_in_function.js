@@ -23,7 +23,7 @@ function getTuple(val1, val2) {
     return [val1, val2];
 }
 const tuple = getTuple(true, 100); //const tuple: readonly [boolean, number]
-class Idol {
+class People {
     constructor(name, age) {
         this.name = name;
         this.age = age;
@@ -35,12 +35,12 @@ class Car {
         this.codeName = codeName;
     }
 }
-function instantiator(constructor, ...args) {
+function classGenerator(constructor, ...args) {
     return new constructor(...args);
 }
-console.log(instantiator(Idol, '아이유', 23));
-console.log(instantiator(Car, 'BMW', 1111));
+console.log(classGenerator(People, '영훈', 31));
+console.log(classGenerator(Car, 'BMW', 1111));
 function instantiator2(cons, ...args) {
     return new cons(...args);
 }
-console.log(instantiator2(Car, 'KIA', 1234));
+//console.log(instantiator2(Car, 'KIA', 1234));

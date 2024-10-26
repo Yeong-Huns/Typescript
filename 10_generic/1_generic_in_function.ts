@@ -31,7 +31,7 @@ function getTuple<X, Y>(val1: X, val2: Y){
 
 const tuple = getTuple(true, 100);  //const tuple: readonly [boolean, number]
 
-class Idol {
+class People {
     name: string;
     age: number;
     constructor(name:string, age:number) {
@@ -49,17 +49,17 @@ class Car{
     }
 }
 
-function instantiator<T extends {new (...args: any[]) : {}}>(constructor: T, ...args:any[]){
+function classGenerator<T extends {new (...args: any[]) : {}}>(constructor: T, ...args:any[]){
     return new constructor(...args);
 }
 
-console.log(instantiator(Idol, '아이유', 23));
-console.log(instantiator(Car, 'BMW', 1111));
+console.log(classGenerator(People, '영훈', 31));
+console.log(classGenerator(Car, 'BMW', 1111));
 
-function instantiator2<T extends { new (...args: any[]) : {} }>(cons: T, ...args:any[]){
+function instantiator2<T extends {new (...args: any[]): {}}>(cons: T, ...args:any[]){
     return new cons(...args);
 }
 
-console.log(instantiator2(Car, 'KIA', 1234));
+//console.log(instantiator2(Car, 'KIA', 1234));
 
 
