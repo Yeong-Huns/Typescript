@@ -7,6 +7,31 @@ interface Idol{
     groupName: string;
 }
 
+type Idol2 = {
+    name: string;
+    age: number;
+    groupName: string;
+}
+
+const yuJin2: Idol2 = {
+    name: '안유진',
+    age: 23,
+    groupName: '아이브'
+}
+
+function updateIdol2(original: Idol2, updates: Partial<Idol2>): Idol2 {
+    return {
+        ...original,
+        ...updates
+    }
+}
+
+console.log(updateIdol2(yuJin2, {
+    name: '김영훈',
+    age: 31,
+    groupName: '백수'
+}));
+
 const yuJin: Idol = {
     name: '안유진',
     age: 23,

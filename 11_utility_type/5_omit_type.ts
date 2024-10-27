@@ -21,3 +21,24 @@ console.log(
         content: '노드 재밌어요  ㅎㅎ'
     })
 )
+interface User {
+    name: string;
+    age: number;
+    email: string;
+    createdAt: Date;
+}
+
+function signUp(newUser: Omit<User, 'createdAt'>): User{
+    return {
+        ...newUser,
+        createdAt: new Date()
+    }
+}
+
+console.log(
+    signUp({
+        name: '김영훈',
+        age: 31,
+        email: '1q2w3e4r@gmail.com'
+    })
+)

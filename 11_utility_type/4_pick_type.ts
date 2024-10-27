@@ -34,3 +34,10 @@ createPost2({
     content: 'node 로도 엔터프라이즈급 서비스를 만들 수 있을까요?',
 })
 )
+
+console.log(
+    createPost2({
+        title: '아파트아파트',
+        content: 'uh huh uh huh'
+    })
+)
