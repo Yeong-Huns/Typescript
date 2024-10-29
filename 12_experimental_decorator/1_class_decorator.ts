@@ -12,10 +12,10 @@ function Test(constructor: Function){
     console.log(constructor)
 }
 
-@Test
-//@Frozen2
+//@Test
+@Frozen2
 @LogTest('prod')
-@ChangeClass
+@ChangeClass('아이브')
 class Idol {
     name: string;
     age: number;
@@ -54,18 +54,21 @@ function LogTest(env: string){ // 데코레이터 팩토리를 사용하면 파�
 }
 
 console.log('--------------------------------')
-
 const wonYoung = new Idol('장원영', 22);
+const wonYoung2 = new Idol('장원영2', 22)
 console.log(wonYoung)
+console.log(wonYoung2)
 // 기존에 데코레이터 선언했던 것들이 다시 실행되지 않는다..
 // 클래스에 데코레이터를 적용하게 되면, 클래스의 선언이 읽힐때(선언이 될 때) 딱 한번만 실행이 된다. .
 
-function ChangeClass<T extends {new (...args: any[]): {}}>(constructor: T){
-    return class extends constructor{
-        groupName = '아이브';
-        constructor(...params: any[]) {
-            super(...params);
-            console.log('constructor init');
+function ChangeClass(value: string){
+    return function <T extends {new (...args: any[]): {}}>(constructor: T){
+        return class extends constructor{
+            groupName = value;
+            constructor(...params: any[]) {
+                super(...params);
+                console.log(`constructor init, ${value}`);
+            }
         }
     }
 }

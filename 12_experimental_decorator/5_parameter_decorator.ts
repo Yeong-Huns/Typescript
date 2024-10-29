@@ -18,4 +18,6 @@ cat.dance('신나게');
 
 function LogParam(target: any, propertyKey: string, paramIndex: number){
     console.log(`${paramIndex}번째 파라미터인 ${propertyKey}가 정의됐습니다. `);
+    console.log('target')
+    console.log(propertyKey)
 }

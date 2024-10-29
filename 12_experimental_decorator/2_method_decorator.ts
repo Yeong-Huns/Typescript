@@ -8,7 +8,7 @@ class Idol {
         this.name = name;
     }
     @TestMethodDecorator
-    @Configurable(false)
+    //@Configurable(false)
     @MethodCallLogger('PROD')
     dance(){
         return `${this.name}가 춤을 춘다.`
@@ -20,16 +20,23 @@ class Idol {
 }
 
 function TestMethodDecorator(target: any, propertyKey: string, descriptor: PropertyDescriptor){
-    console.log('LogCall')
-    console.log('---target---');
+    console.log('----------')
+    console.log('::target::');
     console.log(target);
-    console.log('---propertyKey---');
-    console.log(propertyKey);
-    console.log('---descriptor---');
+
+    console.log('::propertyKey::');
+    console.log(`key: ${propertyKey}`)
+
+    console.log('::descriptor::');
     console.log(descriptor);
 }
 
+
+
 const rose = new Idol('로제');
+console.log('==============')
+console.log(Idol.staticDance())
+console.log('==============')
 /*
 LogCall
 ---target---
@@ -84,4 +91,6 @@ function MethodCallLogger(env: string){
     }
 }
 
+console.log(rose.dance());
+console.log(rose.dance());
 console.log(rose.dance());
