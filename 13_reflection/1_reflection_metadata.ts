@@ -1,5 +1,9 @@
 /**
  * Reflection Metadata
+ *
+ * npm install --save-dev reflect-metadata
+ * --save: 이 package 를 사용했다는 것을 package.json 에 포함해라
+ * -dev: 이 요소를 개발 환경에서만 사용하겠다.
  */
 import 'reflect-metadata';
 const iu = {
@@ -21,7 +25,7 @@ console.log(iu);
  *
  * 메타데이터가 무엇인가? - 데이터에 대한 데이터
  */
-Reflect.defineMetadata('test-meta', 123, iu); // key : 'test-meta' value : 123, 저장할 객체 : iu
+Reflect.defineMetadata('test-meta', '츄르를 좋아함', iu); // key : 'test-meta' value : 123, 저장할 객체 : iu
 console.log(iu);
 console.log(Reflect.getMetadata('test-meta', iu)) // 123
 
@@ -34,7 +38,13 @@ console.log(Reflect.getMetadata('meta2', iu));
 /**
  * 프로퍼티에 저장하기
  */
-Reflect.defineMetadata('object-meta', 999, iu, 'name');
+Reflect.defineMetadata('meta123', '으아악', Object.getPrototypeOf(iu));
+Reflect.defineMetadata('starts', '으아악', iu, 'name');
+console.log('---')
+console.log(Reflect.getMetadata('meta123', iu));
+console.log(Reflect.getMetadataKeys(iu));
+console.log('---')
+
 console.log(iu)
 console.log(Reflect.getMetadata('object-meta', iu, 'name'));
 
@@ -47,6 +57,9 @@ console.log(Reflect.getMetadataKeys(iu)); // iu 객체안에 존재하는 모든
 console.log(Reflect.getMetadataKeys(iu, 'name')); // []
 
 Reflect.defineMetadata('prototype-data', '프로토타입 메타', Object.getPrototypeOf(iu));
+console.log('-----')
+console.log(Reflect.getMetadata('prototype-data', iu))
+
 
 console.log(Reflect.getMetadataKeys(iu)); // [ 'test-meta', 'meta2', 'prototype-data' ]
 // -> getMetadataKeys 는 현재 객체뿐아니라 프로토타입까지 검사해서 가져온다.

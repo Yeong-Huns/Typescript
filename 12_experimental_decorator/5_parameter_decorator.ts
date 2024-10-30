@@ -6,18 +6,15 @@ class Cat {
     constructor(name: string) {
         this.name = name;
     }
-    dance(@LogParam adj: string){
-        console.log(`${this.name} 가 ${adj} 춤을 춥니다.`)
+    eat(@LogParam adj: string, @LogParam num: number){
+        console.log(`${this.name}는 하루에 ${adj}를 ${num}번 먹습니다.`)
     }
 }
 
-const cat = new Cat('냥이');
-cat.dance('신나게');
+const cat = new Cat('까미');
+cat.eat('츄르', 3);
 
-// 냥이 가 신나게 춤을 춥니다.
-
+// 까미는 하루에 츄르를 3번 먹습니다.
 function LogParam(target: any, propertyKey: string, paramIndex: number){
-    console.log(`${paramIndex}번째 파라미터인 ${propertyKey}가 정의됐습니다. `);
-    console.log('target')
-    console.log(propertyKey)
+    console.log(`${propertyKey} 메서드의 ${paramIndex + 1}번째 파라미터가 정의됐습니다. `);
 }
